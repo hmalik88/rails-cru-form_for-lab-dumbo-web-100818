@@ -1,0 +1,16 @@
+<h1>Song Form</h1>
+<%= form_for Song.new do |f| %>
+<label>Name:</label><br><br>
+<%= f.text_field :name %><br><br>
+<label>Enter the corresponding ID of the artist from existing artists:</label><br><br>
+<% @artists.each_with_index do |artist, i| %>
+<p><%= i+1 %>. <%= artist.name %></p>
+<% end %>
+<%= f.text_field :artist_id %><br><br>
+<label>Choose from existing genres:</label><br><br>
+<% @genres.each_with_index do |genre, i| %>
+<p><%= i+1 %>. <%= genre.name %></p>
+<% end %>
+<%= f.text_field :genre_id %>
+<%= f.submit %>
+<% end %>
